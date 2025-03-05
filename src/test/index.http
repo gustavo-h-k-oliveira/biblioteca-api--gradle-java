@@ -26,3 +26,31 @@ Content-Type: application/json
     "generos": "Fantasia",
     "autores": "J.K. Rowling"
 }
+
+###
+
+PUT {{url}}/livros/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "titulo": "Harry Potter - Edição Ilustrada",
+    "generos": "Fantasia",
+    "autores": "J.K. Rowling"
+}
+
+###
+
+PUT {{url}}/livros/2
+Content-Type: application/json
+
+{
+    "id": 2,
+    "titulo": "Do Androids Dream of Electric Sheep?",
+    "generos": "Ficção Científica",
+    "autores": "Philip K. Dick"
+}
+
+###
+
+DELETE {{url}}/livros/2
