@@ -1,0 +1,28 @@
+@url = https://bookish-space-tribble-g9w95q46j64fpvxx.github.dev
+
+###
+
+GET {{url}}
+
+###
+
+GET {{url}}/livros
+
+###
+
+POST {{url}}
+Content-Type: text/plain
+
+Hello, World!
+
+###
+
+POST {{url}}/livros
+Content-Type: application/json
+
+{
+    "id": 1,
+    "titulo": "Harry Potter",
+    "generos": "Fantasia",
+    "autores": "J.K. Rowling"
+}
