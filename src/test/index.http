@@ -10,6 +10,20 @@ GET {{url}}/livros
 
 ###
 
+GET {{url}}/generos
+
+###
+
+POST {{url}}/generos
+Content-Type: application/json
+
+{
+    "id": 1,
+    "descricao": "Ficção Científica"
+}
+
+###
+
 POST {{url}}/livros
 Content-Type: application/json
 
@@ -34,11 +48,17 @@ Content-Type: application/json
 
 ###
 
-GET {{url}}/livros/2
+PUT {{url}}/generos/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "descricao": "Romance"
+}
 
 ###
 
-PUT {{url}}/livros/2
+POST {{url}}/livros
 Content-Type: application/json
 
 {
@@ -50,4 +70,26 @@ Content-Type: application/json
 
 ###
 
+POST {{url}}/generos
+Content-Type: application/json
+
+{
+    "id": 2,
+    "descricao": "Ficção Científica"
+}
+
+###
+
+GET {{url}}/livros/2
+
+###
+
+GET {{url}}/generos/2
+
+###
+
 DELETE {{url}}/livros/2
+
+###
+
+DELETE {{url}}/generos/2
