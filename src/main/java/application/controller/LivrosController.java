@@ -1,7 +1,5 @@
 package application.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,37 +10,37 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import application.model.Livro;
-import application.repository.LivroRepository;
+import application.record.LivroDTO;
+import application.service.LivroService;
 
 @RestController
 @RequestMapping("/livros")
 public class LivrosController {
     @Autowired
-    private LivroRepository livroRepo;
+    private LivroService livroService;
 
     @GetMapping
-    public Iterable<Livro> list() {
-        return livroRepo.findAll();
+    public Iterable<LivroDTO> list() {
+        return livroService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public LivroDTO getOne(@PathVariable long id) {
+        return livroService.getOne(id);
     }
 
     @PostMapping
-    public Livro insert(@RequestBody Livro novoLivro) {
-        return livroRepo.save(novoLivro);
+    public LivroDTO insert(@RequestBody LivroDTO livro) {
+        return livroService.insert(livro);
     }
 
     @PutMapping("/{id}")
-    public Livro update(@RequestBody Livro dados, @PathVariable long id) {
-        Optional<Livro> resultado = livroRepo.findById(id);
-        if(resultado.isPresent()) {
-            resultado.get().setTitulo(dados.getTitulo());
-            return livroRepo.save(resultado.get());
-        }
-        return new Livro();
+    public LivroDTO update(@PathVariable long id, @RequestBody LivroDTO livro) {
+        return livroService.update(id, livro);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable long id) {
-        livroRepo.deleteById(id);
+        livroService.delete(id);
     }
 }
