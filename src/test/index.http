@@ -1,4 +1,4 @@
-@url = https://bookish-space-tribble-g9w95q46j64fpvxx.github.dev
+@url = https://bookish-space-tribble-g9w95q46j64fpvxx-8080.app.github.dev
 
 ###
 
@@ -7,13 +7,6 @@ GET {{url}}
 ###
 
 GET {{url}}/livros
-
-###
-
-POST {{url}}
-Content-Type: text/plain
-
-Hello, World!
 
 ###
 
@@ -38,6 +31,10 @@ Content-Type: application/json
     "generos": "Fantasia",
     "autores": "J.K. Rowling"
 }
+
+###
+
+GET {{url}}/livros/2
 
 ###
 
