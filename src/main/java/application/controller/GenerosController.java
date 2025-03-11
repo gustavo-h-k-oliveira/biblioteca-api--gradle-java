@@ -10,37 +10,37 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import application.record.LivroDTO;
-import application.service.LivroService;
+import application.record.GeneroDTO;
+import application.service.GeneroService;
 
 @RestController
-@RequestMapping("/livros")
-public class LivrosController {
+@RequestMapping("/generos")
+public class GenerosController {
     @Autowired
-    private LivroService livroService;
+    private GeneroService generoService;
 
     @GetMapping
-    public Iterable<LivroDTO> list() {
-        return livroService.getAll();
+    public Iterable<GeneroDTO> list() {
+        return generoService.getAll();
     }
 
     @GetMapping("/{id}")
-    public LivroDTO getOne(@PathVariable long id) {
-        return livroService.getOne(id);
+    public GeneroDTO getOne(@PathVariable long id) {
+        return generoService.getOne(id);
     }
 
     @PostMapping
-    public LivroDTO insert(@RequestBody LivroDTO livro) {
-        return livroService.insert(livro);
+    public GeneroDTO insert(@RequestBody GeneroDTO genero) {
+        return generoService.insert(genero);
     }
 
     @PutMapping("/{id}")
-    public LivroDTO update(@PathVariable long id, @RequestBody LivroDTO livro) {
-        return livroService.update(id, livro);
+    public GeneroDTO update(@PathVariable long id, @RequestBody GeneroDTO genero) {
+        return generoService.update(id, genero);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable long id) {
-        livroService.delete(id);
+        generoService.delete(id);
     }
 }

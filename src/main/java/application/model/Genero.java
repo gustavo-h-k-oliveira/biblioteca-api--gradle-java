@@ -1,6 +1,6 @@
 package application.model;
 
-import application.record.LivroDTO;
+import application.record.GeneroDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
@@ -13,19 +13,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Livro {
-    // Identificador único da tarefa
+public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String titulo;
-    private String generos;
-    private String autores;
+    private String descricao;
 
-    public Livro(LivroDTO record) {
+    public Genero(GeneroDTO record) {
         this.id = record.id();
-        this.titulo = record.titulo();
-        this.generos = record.generos();
-        this.autores = record.autores();
+        this.descricao = record.descricao();
     }
 }
